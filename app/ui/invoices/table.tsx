@@ -33,9 +33,11 @@ export default async function InvoicesTable({
                         height={28}
                         alt={`${invoice.name}'s profile picture`}
                       />
-                      <p>{invoice.name}</p>
+                      <p className="mr-2 overflow-ellipsis">{invoice.name}</p>
                     </div>
-                    <p className="text-sm text-gray-500">{invoice.email}</p>
+                    <p className="overflow-ellipsis text-sm text-gray-500">
+                      {invoice.email}
+                    </p>
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
@@ -57,7 +59,7 @@ export default async function InvoicesTable({
           <table className="hidden min-w-full text-gray-900 md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
-                <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                <th scope="col" className="mr-5 px-4 py-5 font-medium sm:pl-6">
                   Customer
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
@@ -81,10 +83,10 @@ export default async function InvoicesTable({
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}
-                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
+                  className="m-1 w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
                 >
-                  <td className="whitespace-nowrap py-3 pl-6 pr-3">
-                    <div className="flex items-center gap-3">
+                  <td className="py-3 pl-10 pr-3">
+                    <div className="flex min-w-fit items-center gap-3">
                       <Image
                         src={invoice.image_url}
                         className="rounded-full"
@@ -95,7 +97,7 @@ export default async function InvoicesTable({
                       <p>{invoice.name}</p>
                     </div>
                   </td>
-                  <td className="whitespace-nowrap px-3 py-3">
+                  <td className="ml-5 whitespace-nowrap px-3 py-3">
                     {invoice.email}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
